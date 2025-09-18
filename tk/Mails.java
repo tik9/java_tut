@@ -1,54 +1,31 @@
-
 package tk;
 
 import java.util.Random;
 
 public class Mails {
-     static final int[] MAILS_PRO_TAG = { 12, 15, 22, 13, 0, 21, 19 };
-     static final String[] WOCHENTAGE = { "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag",
+    static final String[] WOCHENTAGE = { "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag",
             "Sonntag" };
-     static final Random random = new Random();
-    static final int ZIEL_KUNDEN = 500;
+    static final int[] MAILS_PRO_TAG = { 12, 15, 22, 13, 0, 21, 19 };
+    static final int ziel = 500;
 
     public static void main(String[] args) {
-
-        int gesamtKunden = 0;
+        int mails = 0;
         int woche = 0;
-        boolean zielErreicht = false;
-        String erreichtAmTag = "";
+        String tag = "";
 
-        while (zielErreicht == false) {
-            woche++;
-            int kundenDieseWoche = 0;
-
-            for (int tag = 0; tag < 7; tag++) {
-                int mailsHeute = MAILS_PRO_TAG[tag];
-
-                int nichtReagieren = random.nextInt(3, 11);
-                int neueKunden = mailsHeute - nichtReagieren;
-
-                if (neueKunden < 0) {
-                    neueKunden = 0;
+        while (tag=="") {
+            for (int i = 0; i < 7; i++) {
+                mails += MAILS_PRO_TAG[i] - (new Random()).nextInt(3, 11);
+                if (mails >= ziel) {
+                    tag = WOCHENTAGE[i];
+                    break;
                 }
-
-                kundenDieseWoche += neueKunden;
-
-                if (gesamtKunden + kundenDieseWoche >= ZIEL_KUNDEN) {
-                    zielErreicht = true;
-                    erreichtAmTag = WOCHENTAGE[tag];
-                    break; // schliesse Schleife
-                }
-
             }
+            woche++;
 
-            gesamtKunden += kundenDieseWoche;
-
-            System.out.println("Nach " + woche + ". Woche " + gesamtKunden + " Neukunden");
-
+            System.out.println(mails + " Mails nach Woche " + woche);
         }
-
-        System.out.printf("Ziel von %d Neukunden erreicht/überschritten am %s in %d. Woche (gesamt: %d Neukunden)%n",
-                ZIEL_KUNDEN, erreichtAmTag, woche, gesamtKunden);
+        System.out.println("Ziel von " + ziel + " Neukunden erreicht am " + tag + " in " + woche + ". Woche (gesamt "
+                + mails + " Kunden)");
     }
-    
 }

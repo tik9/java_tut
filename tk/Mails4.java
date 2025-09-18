@@ -8,26 +8,23 @@ public class Mails4 {
 
     public static void main(String[] args) {
         int mails = 0;
-        int mails_summe = 0;
         int woche = 0;
         String tag = "";
         boolean mails_complete = false;
 
         while (!mails_complete) {
-            mails = 0;
             for (int i = 0; i < 7; i++) {
                 mails += MAILS_PRO_TAG[i];
-                if (mails_summe+mails >= ziel) {
+                if (mails >= ziel) {
                     mails_complete = true;
                     tag = WOCHENTAGE[i];
                     break;
                 }
 
             }
-            mails_summe += mails;
             woche++;
 
-            System.out.println(mails_summe + " Mails nach Woche " + woche);
+            System.out.println(mails + " Mails nach Woche " + woche);
         }
         System.out.println("Ziel von "+ziel+" Neukunden erreicht am " + tag + " in " + woche + ". Woche (gesamt " + mails + " Kunden)");
     }

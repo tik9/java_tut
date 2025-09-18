@@ -16,7 +16,6 @@ public class Mails {
         int woche = 0;
         boolean zielErreicht = false;
         String erreichtAmTag = "";
-        int erreichtInWoche = 0;
 
         while (zielErreicht == false) {
             woche++;
@@ -37,7 +36,6 @@ public class Mails {
                 if (gesamtKunden + kundenDieseWoche >= ZIEL_KUNDEN) {
                     zielErreicht = true;
                     erreichtAmTag = WOCHENTAGE[tag];
-                    erreichtInWoche = woche;
                     break; // schliesse Schleife
                 }
 
@@ -50,7 +48,7 @@ public class Mails {
         }
 
         System.out.printf("Ziel von %d Neukunden erreicht/überschritten am %s in %d. Woche (gesamt: %d Neukunden)%n",
-                ZIEL_KUNDEN, erreichtAmTag, erreichtInWoche, gesamtKunden);
+                ZIEL_KUNDEN, erreichtAmTag, woche, gesamtKunden);
     }
     
 }

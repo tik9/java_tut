@@ -5,13 +5,10 @@ import java.util.Random;
 public class Hw {
          static final Random random = new Random();
 
-    public static void main(String[] args) {
-        testran();
-    }
-
-    public static void testran() {
+         public static void main(String[] args) {
         for (int i = 1; i < 100; i++) {
-            System.out.println(random.nextInt(3, 11));
+            System.out.println(random.nextInt(1, 10));
         }
     }
+
 }

@@ -3,7 +3,7 @@ package tk;
 
 import java.util.Random;
 
-public class Passwort {
+public class Passwort3 {
     private static final char[] ZEICHEN = {
             'A', 'F', 'U', 'X', 'b', 'n', 's', 'u', '2', '5', '8', '%', '&', '$'
     };
@@ -13,7 +13,6 @@ public class Passwort {
     public static void main(String[] args) {
         int versuche = 0;
         String passwort;
-        int pruefsumme = 0;
 
         do {
             versuche++;
@@ -26,10 +25,8 @@ public class Passwort {
             passwort = passwort2.toString();
         } while (!checkPasswort(passwort));
 
-        pruefsumme = pruefSumme(passwort);
 
         System.out.println("Passwort: " + passwort);
-        System.out.println("Prüfsumme: " + pruefsumme);
         System.out.println(versuche + " Versuch(e)");
     }
 
@@ -52,15 +49,5 @@ public class Passwort {
         }
 
         return grossbuchstaben >= 3 && kleinbuchstaben >= 3 && ziffern >= 2 && sonderzeichen >= 2;
-    }
-
-    private static int pruefSumme(String passwort) {
-        int summe = 0;
-
-        for (char c : passwort.toCharArray()) {
-            summe += (int) c;
-        }
-
-        return summe;
     }
 }

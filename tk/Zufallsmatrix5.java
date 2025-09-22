@@ -14,8 +14,7 @@ public class Zufallsmatrix5 {
         int value = 0;
         int sum = 0;
         int versuche = 0;
-        boolean summe_gerade = false;
-        while (!summe_gerade) {
+        while (!(sum % 2 == 0) || sum == 0) {
             versuche++;
             sum = 0;
             for (int i = 0; i < ROWS; i++) {
@@ -27,6 +26,7 @@ public class Zufallsmatrix5 {
 
                     do {
                         zufallsspalte = random.nextInt(0, 5);
+                        System.out.println(zufallsspalte);
                     } while (matrix[i][zufallsspalte] != 0);
 
                     value = random.nextInt(1, 10);
@@ -34,9 +34,6 @@ public class Zufallsmatrix5 {
                     if (zufallsspalte == 2)
                         sum += value;
                 }
-            }
-            if (sum % 2 == 0) {
-                summe_gerade = true;
             }
         }
         System.out.println("Versuche: " + versuche + ", Summe= " + sum);

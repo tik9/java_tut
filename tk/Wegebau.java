@@ -16,18 +16,17 @@ public class Wegebau {
         final double STAB3_GEWICHT = 3.3;
         final int STAB3_MAX = 66;
         
-        double minGewicht = Double.MAX_VALUE;
+        double minGewicht = Integer.MAX_VALUE;
         int besteStab1 = 0;
         int besteStab2 = 0;
         int besteStab3 = 0;
-        
+        int versuche = 0;
         for (int stab3 = 0; stab3 <= STAB3_MAX; stab3++) {
             for (int stab2 = 0; stab2 <= STAB2_MAX; stab2++) {
                 for (int stab1 = 0; stab1 <= STAB1_MAX; stab1++) {
-                    
                     if (stab1 * STAB1_LAENGE + stab2 * STAB2_LAENGE + stab3 * STAB3_LAENGE == ZIEL_LAENGE) {
                         double gesamtGewicht = stab1 * STAB1_GEWICHT + stab2 * STAB2_GEWICHT + stab3 * STAB3_GEWICHT;
-                        
+
                         if (gesamtGewicht < minGewicht) {
                             minGewicht = gesamtGewicht;
                             besteStab1 = stab1;
@@ -47,6 +46,6 @@ public class Wegebau {
         System.out.println("Anzahl Stablänge " + STAB1_LAENGE + ": " + besteStab1+ ", Produkt: "+prod1);
         System.out.println("Anzahl Stablänge " + STAB2_LAENGE + ": " + besteStab2+ ", Produkt: "+prod2);
         System.out.println("Anzahl Stablänge " + STAB3_LAENGE + ": " + besteStab3+ ", Produkt: "+prod3);
-        System.out.println("Summe (2137): "+(prod1+prod2+prod3));
+        System.out.println("Summe (2137): " + (prod1 + prod2 + prod3) + ", Versuche: " + versuche);
     }
 }

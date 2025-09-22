@@ -50,7 +50,9 @@ public class Zufallsmatrix {
         for (int i = 0; i < ROWS; i++) {
             summe += matrix[i][2];
         }
-
-        return summe % 2 == 0;
+        if (summe%2==0)
+            return true;
+        
+        return false;
     }
 }

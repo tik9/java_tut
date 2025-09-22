@@ -12,20 +12,17 @@ public class PiNaeherung {
             glied++;
 
             // π/2 = (2/1 * 2/3) * (4/3 * 4/5) * (6/5 * 6/7) * ...
-            double faktor = (2.0 * glied) / (2.0 * glied - 1.0) * (2.0 * glied) / (2.0 * glied + 1.0);
+            double faktor = ((2.0 * glied) / (2.0 * glied - 1.0)) * ((2.0 * glied) / (2.0 * glied + 1.0));
             piNaeherung *= faktor;
 
-            // da π/2 berechnet, multiplizieren mit 2
-            double piAktuell = piNaeherung * 2.0;
 
-            // Differenz zu Math π
-            differenz = Math.abs(Math.PI - piAktuell);
+            differenz = Math.abs(Math.PI - piNaeherung * 2.0);
+            System.out.println("Diff: " + differenz);
         }
 
-        double finalPiNaeherung = piNaeherung * 2.0;
 
         System.out.printf("Genauigkeit Näherung (%.12f) PI nach %d Gliedern kleiner als %.4f%n - Math.pi = %.12f",
-                finalPiNaeherung, glied, ZIEL_GENAUIGKEIT, Math.PI);
+                piNaeherung * 2, glied, ZIEL_GENAUIGKEIT, Math.PI);
         System.out.println();
     }
 }

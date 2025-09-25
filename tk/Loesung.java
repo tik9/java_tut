@@ -5,9 +5,7 @@ public class Loesung {
         int maxA = 240;
         int maxB = 400;
         int maxC = 500;
-        int minA = 15;
-        int minB = 25;
-        int minC = 35;
+    
         int gesamtMenge = 860;
 
         int kostenA = 2;
@@ -17,9 +15,9 @@ public class Loesung {
         int minKosten = Integer.MAX_VALUE;
         int bestA = 0, bestB = 0, bestC = 0;
 
-        for (int a = minA; a <= maxA; a++) {
-            for (int b = minB; b <= maxB; b++) {
-                for (int c = minC; c <= maxC; c++) {
+        for (int a = 15; a <= maxA; a++) {
+            for (int b = 25; b <= maxB; b++) {
+                for (int c = 35; c <= maxC; c++) {
                     if (a + b + c == gesamtMenge) {
                         boolean bedingung1 = (2 * a) < c;
                         boolean bedingung2 = (c - a) > b;

@@ -20,7 +20,7 @@ public class Passwort {
             StringBuilder passwort2 = new StringBuilder();
 
             for (int i = 0; i < 10; i++) {
-                passwort2.append(ZEICHEN[random.nextInt(ZEICHEN.length)]);
+                passwort2.append(ZEICHEN[random.nextInt(1,ZEICHEN.length)]);
             }
 
             passwort = passwort2.toString();
@@ -39,16 +39,20 @@ public class Passwort {
         int ziffern = 0;
         int sonderzeichen = 0;
 
-        for (char c : passwort.toCharArray()) {
-            if (Character.isUpperCase(c)) {
-                grossbuchstaben++;
-            } else if (Character.isLowerCase(c)) {
-                kleinbuchstaben++;
-            } else if (Character.isDigit(c)) {
-                ziffern++;
-            } else {
-                sonderzeichen++;
-            }
+        char zeichen;
+
+        for (int i = 0; i < 10; i++) {
+            zeichen = passwort.charAt(i);
+
+                if (Character.isUpperCase(zeichen)) {
+                    grossbuchstaben++;
+                } else if (Character.isLowerCase(zeichen)) {
+                    kleinbuchstaben++;
+                } else if (Character.isDigit(zeichen)) {
+                    ziffern++;
+                } else {
+                    sonderzeichen++;
+                }
         }
 
         return grossbuchstaben >= 3 && kleinbuchstaben >= 3 && ziffern >= 2 && sonderzeichen >= 2;
@@ -56,9 +60,10 @@ public class Passwort {
 
     private static int pruefSumme(String passwort) {
         int summe = 0;
-
-        for (char c : passwort.toCharArray()) {
-            summe += (int) c;
+        char zeichen = 0;
+        for (int i = 0; i < passwort.length();i++){
+            zeichen = passwort.charAt(i);
+            summe += (int) zeichen;
         }
 
         return summe;

@@ -19,10 +19,8 @@ public class Loesung {
             for (int b = 25; b <= maxB; b++) {
                 for (int c = 35; c <= maxC; c++) {
                     if (a + b + c == gesamtMenge) {
-                        boolean bedingung1 = (2 * a) < c;
-                        boolean bedingung2 = (c - a) > b;
 
-                        if (bedingung1 || bedingung2) {
+                        if ((2 * a) < c|| (c-a)>b) {
                             int kosten = a * kostenA + b * kostenB + c * kostenC;
                             if (kosten < minKosten) {
                                 minKosten = kosten;

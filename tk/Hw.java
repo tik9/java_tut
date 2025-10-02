@@ -7,7 +7,10 @@ public class Hw {
 
     public static void main(String[] args) {
         for (int i = 1; i < 30; i++) {
-            System.out.println("Rand 1-9: " + random.nextInt(1,10));
+            // System.out.println("Rand 1-9: " + random.nextInt(1, 10));
         }
+
+        System.out.println(3 % 2);
     }
-        }
+
+}
